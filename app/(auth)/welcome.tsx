@@ -1,8 +1,8 @@
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Text, TouchableOpacity } from "react-native";
+import { router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { router } from "expo-router";
+import { Text, TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Welcome = () => {
   return (
