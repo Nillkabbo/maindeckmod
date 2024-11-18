@@ -6,7 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const SignUp = () => {
   return (
     <SafeAreaView className="flex-1 justify-center items-center">
-      <Text className="text-black text-center text-2xl">Profile Page</Text>
+      <Text className="text-black text-center text-2xl">Sign Up</Text>
       <StatusBar style="dark" />
     </SafeAreaView>
   );
