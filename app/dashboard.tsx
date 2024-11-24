@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ReactNode } from "react";
+import React, { useEffect, useState } from "react";
 import { Text, View, StyleSheet, Button, ScrollView } from "react-native";
 import { useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
