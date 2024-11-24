@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Text, View, StyleSheet, Button, ScrollView } from "react-native";
 import { useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { fetchData } from "./api";
+import { fetchData } from "../api";
 import DashboardView from "@/components/dashbord_view";
+import { StatusBar } from "expo-status-bar";
 
 const Dashboard = () => {
   const [data, setData] = useState<any | null>(null);
@@ -32,16 +33,15 @@ const Dashboard = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={styles.text}>Welcome to the Dashboard</Text>
-        <Text style={styles.header}>Overview</Text>
-        {data ? (
+      <StatusBar style="dark" />
+      {data ? (
+        <View style={styles.dashboardViewContainer}>
           <DashboardView data={data} />
-        ) : (
-          <Text style={styles.text}>Loading data...</Text>
-        )}
-        <Button title="Logout" onPress={handleLogout} />
-      </ScrollView>
+        </View>
+      ) : (
+        <Text style={styles.text}>Loading data...</Text>
+      )}
+      <Button title="Logout" onPress={handleLogout} />
     </View>
   );
 };
@@ -49,24 +49,20 @@ const Dashboard = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#25292e",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#212121",
     padding: 20,
+    width: "100%",
   },
   text: {
+    width: "100%",
     color: "#fff",
     fontSize: 24,
     marginBottom: 20,
+    textAlign: "center",
   },
-  header: {
-    color: "#fff",
-    fontSize: 28,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-  scrollContainer: {
-    paddingVertical: 20,
+  dashboardViewContainer: {
+    height: 400,
+    width: "100%",
   },
 });
 

@@ -11,7 +11,7 @@ import {
 import { Link, useRouter } from "expo-router";
 import { login } from "../api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import { StatusBar } from "expo-status-bar";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -44,7 +44,7 @@ const SignIn = () => {
       if (parsedResponse.status === 200) {
         const { token } = parsedResponse.results;
         await AsyncStorage.setItem("token", JSON.stringify({ token }));
-        router.replace("/dashboard");
+        router.replace("/(tabs)"); // Updated to use drawer layout
       } else {
         console.error("Login failed:", parsedResponse.message);
       }
@@ -59,6 +59,7 @@ const SignIn = () => {
 
   return (
     <View style={styles.container}>
+      <StatusBar style="dark" />
       <Text style={styles.text}>Sign In</Text>
       <TextInput
         style={styles.input}

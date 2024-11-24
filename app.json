@@ -16,6 +16,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "usesCleartextTraffic": true,
       "package": "com.nillkabbo.maindeckmod",
       "permissions": ["android.permission.INTERNET"]
     },

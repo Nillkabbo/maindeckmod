@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { Link, useRouter } from "expo-router";
 import { login, register } from "../api";
+import { StatusBar } from "expo-status-bar";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -53,6 +54,7 @@ const SignUp = () => {
 
   return (
     <View style={styles.container}>
+      <StatusBar style="dark" />
       <Text style={styles.text}>Sign Up</Text>
       <TextInput
         style={styles.input}
