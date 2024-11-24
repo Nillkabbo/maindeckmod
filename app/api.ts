@@ -38,7 +38,7 @@ export const login = async (emailOrUsername: string, password: string) => {
     const response = await axios.request(config);
     return response.data;
   } catch (error) {
-    console.log("error", error);
+    console.error("Network error occurred", JSON.stringify(error, null, 2));
     if (axios.isAxiosError(error) && error.response) {
       throw new Error(error.response.data.message || "Failed to login");
     } else {
